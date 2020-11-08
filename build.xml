@@ -1,0 +1,27 @@
+<project name="jspider" default="build" basedir=".">
+  <target name="init">
+    <property name="src.dir" value="src"/>
+    <property name="out.dir" value="classes"/>
+    <property name="lib.dir" value="libs"/>
+  </target>
+  <target name="prepare" depends="init">
+    <mkdir dir="${out.dir}"/>
+  </target>
+  <target name="clean" depends="init">
+    <delete dir="${out.dir}"/>
+  </target>
+  <target name="build" depends="prepare">
+    <javac srcdir="${src.dir}" destdir="${out.dir}">
+      <classpath>
+        <fileset dir="${lib.dir}">
+          <include name="*.jar"/>
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+  <target name="deploy" depends="build">
+    <copy todir="${classpath}">
+      <fileset dir="${out.dir}"/>
+    </copy>
+  </target>
+</project>
