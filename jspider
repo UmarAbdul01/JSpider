@@ -1,0 +1,5 @@
+#!/bin/bash
+# Bash wrapper for JSpider.
+# Author: Umar Abdul
+
+java com.umarabdul.jspider.JSpider "$@"
